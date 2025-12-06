@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import type { Work } from "../../lib/microcms";
+import { formatDateJST } from "../../utils/date/formatDateJST";
+import ExternalLinkIcon from "../Svg/ExternalLinkIcon/ExternalLinkIcon.astro";
+
+interface Props {
+    work: Work;
+}
+
+const { work } = Astro.props;
+---
+
+<article class="work">
+    <div class="thumbnail">
+        <a href={work.link} target="_blank" rel="noopener noreferrer">
+            {work.eyecatch ? (
+                <picture>
+                    <Image
+                        src={`${work.eyecatch.url}?fm=webp&fit=fill&fill-color=dde0e4&w=640&h=336`}
+                        alt={work.title}
+                        class="eyecatch"
+                        width={work.eyecatch?.width || 640}
+                        height={work.eyecatch?.height || 336}
+                        format="webp"
+                    />
+                </picture>
+            ) : (
+                <div class="placeholderEyecatch"></div>
+            )}
+        </a>
+    </div>
+    <h2 class="title">
+        <a href={work.link} target="_blank" rel="noopener noreferrer">
+            {work.title}
+            <ExternalLinkIcon />
+        </a>
+    </h2>
+</article>
+
+<style>
+    .work {
+        display: block grid;
+        grid-template-areas:
+            "eyecatch"
+            "title"
+            "publishDate";
+        grid-template-rows: 1fr auto auto;
+    }
+
+    h2 {
+        color: var(--bunker)
+        font-size: var(--font-size-bold);
+        font-weight: 600;
+        a {
+            transition: filter 0.2s var(--ease-out-expo);
+            border-bottom: 2px solid var(--post-card-heading-border-color, rgba(0, 0, 0, 0));
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+    }
+
+
+    .publishDate {
+        font-size: var(--font-size-small);
+        color: var(--color-gray);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    a picture img {
+        filter: var(--post-card-eyecatch-filter, brightness(1.0));
+        transition: filter 0.2s var(--ease-out-expo);
+    }
+
+    .placeholderEyecatch {
+        display: block;
+        aspect-ratio: 40 / 21;
+        inline-size: 100%;
+        background-color: var(--alto);
+        transition: filter 0.2s var(--ease-out-expo);
+        filter: var(--post-card-eyecatch-filter, brightness(1.0));
+    }
+
+    @media (any-hover: hover) {
+        .work:has(:is(.thumbnail,.title) :any-link:hover) {
+           --post-card-eyecatch-filter: brightness(0.8);
+           --post-card-heading-border-color: var(--bunker);
+        }
+    }
+
+</style>

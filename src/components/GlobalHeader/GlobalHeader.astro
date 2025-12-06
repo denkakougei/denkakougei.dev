@@ -1,0 +1,48 @@
+---
+
+---
+
+<header class="globalHeader">
+    <div class="globalHeaderInner">
+        <p class="logo">電化工藝 </p>
+        <nav class="navigation">
+            <a href="/works">Works</a>
+            <a href="/about">About</a>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .globalHeader {
+        inline-size: calc(100% - var(--spacing-gutter) * 2);
+        padding-block: var(--spacing-2);
+    }
+    .globalHeaderInner {
+        max-inline-size: var(--container-size-lg);
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: var(--font-size-large);
+        font-weight: 600;
+
+        a {
+            border-bottom: var(--is-hover-true, 2px solid var(--bunker))
+                var(--is-hover-false, 2px solid transparent);
+        }
+    }
+
+    .navigation {
+        display: flex;
+        gap: var(--spacing-4);
+
+        a {
+            border-bottom: var(--is-hover-true, 2px solid var(--bunker))
+                var(--is-hover-false, 2px solid transparent);
+        }
+    }
+
+</style>
