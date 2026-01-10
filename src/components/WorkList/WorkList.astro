@@ -1,0 +1,35 @@
+---
+import WorkCard from "../WorkCard/WorkCard.astro";
+import type { Work } from "../../lib/microcms";
+
+interface Props {
+	works: Work[];
+}
+
+const { works } = Astro.props;
+---
+
+<div class="WorkList">
+	<div class="WorkListInner">
+		{works.map((work) => <WorkCard work={work} />)}
+	</div>
+</div>
+
+<style>
+	.WorkListInner {
+		--_container-size-max: var(--container-size-lg);
+		--_min-column-width: 620px;
+		--_gap: var(--spacing-3);
+		inline-size: min(
+			100% - var(--spacing-gutter) * 2,
+			var(--_container-size-max)
+		);
+		inline-size: 100%;
+		display: block grid;
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax(min(var(--_min-column-width), 100%), 1fr)
+		);
+		gap: var(--_gap);
+	}
+</style>

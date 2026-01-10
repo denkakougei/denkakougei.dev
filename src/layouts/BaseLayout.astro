@@ -1,0 +1,81 @@
+---
+import GlobalHeader from "../components/GlobalHeader/GlobalHeader.astro";
+import GlobalFooter from "../components/GlobalFooter/GlobalFooter.astro";
+import MainHead from "../components/MainHead.astro";
+import "../styles/global.css";
+
+const { title, frontmatter, class: className } = Astro.props;
+---
+
+<html lang="ja">
+    <head>
+        <MainHead title={title} description={frontmatter?.description || ""} />
+    </head>
+    <body>
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <GlobalHeader />
+                    <main class="mainContent">
+                        <slot />
+                    </main>
+                <GlobalFooter />
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    #smooth-content {
+        display: block grid;
+        block-size: auto;
+        grid-template-areas:
+            "globalHeader"
+            "mainContent"
+            "globalFooter";
+        inline-size: 100%;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%;
+        min-block-size: 100vh;
+        padding-block-end: var(--spacing-4);
+        justify-items: center;
+    }
+
+    .globalHeader {
+        grid-area: globalHeader;
+    }
+
+    .mainContent {
+        --_container-size: var(--container-size-lg);
+        inline-size: min(
+            100% - var(--spacing-gutter) * 2,
+            var(--_container-size)
+        );
+        grid-area: mainContent;
+        grid-template-columns: 100%;
+        padding-block: var(--spacing-4);
+        display: block grid;
+        justify-items: center;
+    }
+
+    .globalFooter {
+        grid-area: globalFooter;
+    }
+</style>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import { ScrollSmoother } from 'gsap/ScrollSmoother';
+
+    /*
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1,
+        effects: true
+    });
+    */
+
+</script>
