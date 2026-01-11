@@ -10,7 +10,8 @@
     "astro": "astro",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "cheerio": "^1.1.0",
@@ -25,9 +26,16 @@
     "@shikijs/transformers": "^3.7.0",
     "@types/node": "^25.0.5",
     "astro": "^5.16.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "shiki": "^3.7.0",
     "shiki-transformer-copy-button": "^0.0.5",
     "svelte": "^5.35.6",
     "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "*.{js,mjs,ts,json,jsonc,css,html,astro,svelte}": [
+      "biome check --write"
+    ]
   }
 }

@@ -1,13 +1,13 @@
 ---
-
+const isTopPage = Astro.url.pathname === "/";
+const LogoTag = isTopPage ? "h1" : "p";
 ---
 
 <header class="globalHeader">
     <div class="globalHeaderInner">
-        <p class="logo">電化工藝 </p>
+        <LogoTag class="logo">電化工藝 </LogoTag>
         <nav class="navigation">
             <a href="/works">Works</a>
-            <a href="/about">About</a>
         </nav>
     </div>
 </header>

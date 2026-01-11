@@ -1,11 +1,10 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
 import WorkList from "../../components/WorkList/WorkList.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getWorks } from "../../lib/microcms";
 
 const data = await getWorks();
 const works = data.contents;
-
 ---
 
 <BaseLayout title="Works | 電化工藝">

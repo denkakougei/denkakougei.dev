@@ -1,5 +1,9 @@
-import type { MicroCMSQueries, MicroCMSListContent, MicroCMSImage } from "microcms-js-sdk";
-import { createClient } from 'microcms-js-sdk';
+import type {
+  MicroCMSImage,
+  MicroCMSListContent,
+  MicroCMSQueries,
+} from "microcms-js-sdk";
+import { createClient } from "microcms-js-sdk";
 
 export const client = createClient({
   serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
@@ -9,7 +13,7 @@ export const client = createClient({
 export type Work = {
   title: string;
   eyecatch: MicroCMSImage | null;
-  link: string
+  link: string;
 } & MicroCMSListContent;
 
 export const getWorks = async (queries?: MicroCMSQueries) => {
@@ -18,7 +22,7 @@ export const getWorks = async (queries?: MicroCMSQueries) => {
 
 export const getBlogDetail = async (
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   return await client.getListDetail<Work>({
     endpoint: "blogs",
