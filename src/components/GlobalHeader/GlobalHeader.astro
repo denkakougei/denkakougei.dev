@@ -5,7 +5,7 @@ const LogoTag = isTopPage ? "h1" : "p";
 
 <header class="globalHeader">
     <div class="globalHeaderInner">
-        <LogoTag class="logo">電化工藝 </LogoTag>
+        <LogoTag class="logo"><a href="/">電化工藝</a></LogoTag>
         <nav class="navigation">
             <a href="/works">Works</a>
         </nav>
@@ -28,11 +28,6 @@ const LogoTag = isTopPage ? "h1" : "p";
     .logo {
         font-size: var(--font-size-large);
         font-weight: 600;
-
-        a {
-            border-bottom: var(--is-hover-true, 2px solid var(--bunker))
-                var(--is-hover-false, 2px solid transparent);
-        }
     }
 
     .navigation {
