@@ -1,19 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import WorkList from "../components/WorkList/WorkList.astro";
-import { getWorks } from "../lib/microcms";
-
-const data = await getWorks();
-const works = data.contents;
-
+import "../styles/content.css";
 ---
 
-<BaseLayout title="Works | 電化工藝">
+<BaseLayout title="電化工藝">
 	<div class="mainContentInner">
-		<div class="heading">
-			<h1>Works</h1>
+		<div class="content">
+			<p>ハードウェアだからこそ仕掛けられる驚きや楽しさがあるという信念のもと、娯楽性と機能性の両立をテーマに、日常をほんのり彩る、ちょっと便利なプロダクトを制作しています<p>
+			<ul>
+				<li><a href="https://www.iamas.ac.jp/ommf2022/maker/yasei-no-prototyper/">Ogaki Mini Maker Faire 2022</a></li>
+				<li><a href="https://makezine.jp/event/makers-mft2022/m0122/">Maker Faire Tokyo 2022</a></li>
+			</ul>
 		</div>
-		<WorkList works={works} />
 	</div>
 </BaseLayout>
 
@@ -22,16 +20,17 @@ const works = data.contents;
 		inline-size: 100%;
 		display: block grid;
 		gap: var(--spacing-8);
-		grid-template-areas: 
+		grid-template-areas:
 			"heading"
-			"workList";
+			"WorkList";
 		grid-template-rows: auto 1fr;
-		
+
 		.heading {
 			grid-area: heading;
 		}
-		.workList {
-			grid-area: workList;
+		.WorkList {
+			grid-area: WorkList;
 		}
 	}
 </style>
+
