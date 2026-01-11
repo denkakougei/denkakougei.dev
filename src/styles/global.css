@@ -35,7 +35,10 @@
 
   --art-board-width-min: 375px;
   --svi-full: 100svi;
-  --to-svi-min: calc(tan(atan2(var(--svi-full), var(--art-board-width-min)))*1px);
+  --to-svi-min: calc(
+    tan(atan2(var(--svi-full), var(--art-board-width-min))) *
+    1px
+  );
   --spacing-gutter: calc(20 * var(--to-svi-min));
 }
 
@@ -61,7 +64,6 @@ h2,
 h3,
 p,
 a,
-
 div,
 ul,
 li,
@@ -82,23 +84,23 @@ button {
   appearance: none;
 }
 
- @media (any-hover: hover) {
-    :where(:any-link, :enabled, summary):hover {
-        --is-hover-true: initial;
-        --is-hover-false: ;
-    }
+@media (any-hover: hover) {
+  :where(:any-link, :enabled, summary):hover {
+    --is-hover-true: initial;
+    --is-hover-false: ;
+  }
 }
 
 :where(:any-link, :enabled, summary) {
-    --is-hover-true: ;
-    --is-hover-false: initial;
+  --is-hover-true: ;
+  --is-hover-false: initial;
 }
 
 :where(:any-link, :enabled, summary):focus-visible {
-    --is-hover-true: initial;
-    --is-hover-false: ;
+  --is-hover-true: initial;
+  --is-hover-false: ;
 }
-  
+
 :where(picture) {
   display: contents;
 }

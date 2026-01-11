@@ -1,75 +1,75 @@
 /* 記事ヘッダー */
 .header {
-	display: block grid;
-	gap: var(--spacing-3);
-	max-inline-size: inherit;
+  display: block grid;
+  gap: var(--spacing-3);
+  max-inline-size: inherit;
 }
 
 .title {
-	font-size: var(--font-size-h2);
-	line-height: 1.2;
+  font-size: var(--font-size-h2);
+  line-height: 1.2;
 }
 
 .date {
-	font-size: var(--font-size-small);
-	color: var(--scarpa-flow);
+  font-size: var(--font-size-small);
+  color: var(--scarpa-flow);
 }
 
 .eyecatch img {
-	width: 100%;
-	height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* コンテンツエリア */
 .content {
-	display: block;
-	inline-size: 100%;
+  display: block;
+  inline-size: 100%;
 }
 
 .content h2 {
-	font-size: var(--font-size-h3);
-	margin-block-start: 5.4rem;
+  font-size: var(--font-size-h3);
+  margin-block-start: 5.4rem;
 }
 
 .content h3 {
-	font-size: var(--font-size-large);
-	margin-block-start: 3.6rem;
+  font-size: var(--font-size-large);
+  margin-block-start: 3.6rem;
 }
 
 .content p {
-	margin-block-end: var(--spacing-3);
-	margin: 1.8rem 0;
+  margin-block-end: var(--spacing-3);
+  margin: 1.8rem 0;
 }
 
 .content img {
-	max-inline-size: 100%;
-	height: auto;
-	margin: var(--spacing-4) 0;
+  max-inline-size: 100%;
+  height: auto;
+  margin: var(--spacing-4) 0;
 }
 
 .content > *:first-child {
-	margin-block-start: 0;
+  margin-block-start: 0;
 }
 
 .content > *:last-child {
-	margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 /* リスト */
 ul,
 ol {
-	padding-inline-start: var(--spacing-1);
-	list-style-type: "・";
+  padding-inline-start: var(--spacing-1);
+  list-style-type: "・";
 }
 
 /* リンク */
 :any-link:hover {
-	border-bottom: 2px solid
-		var(--post-card-heading-border-color, rgba(0, 0, 0, 0));
+  border-bottom: 2px solid
+    var(--post-card-heading-border-color, rgba(0, 0, 0, 0));
 }
 
 @media (any-hover: hover) {
-	:any-link:hover {
-		--post-card-heading-border-color: var(--bunker);
-	}
+  :any-link:hover {
+    --post-card-heading-border-color: var(--bunker);
+  }
 }
