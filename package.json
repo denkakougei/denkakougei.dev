@@ -1,33 +1,42 @@
 {
-  "name": "denkakougei.dev",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev --host",
-    "build": "astro build",
-    "preview": "astro preview",
-    "deploy": "npm run build",
-    "astro": "astro",
-    "lint": "biome check .",
-    "lint:fix": "biome check --write .",
-    "format": "biome format --write ."
-  },
-  "dependencies": {
-    "cheerio": "^1.1.0",
-    "gsap": "^3.13.0",
-    "katex": "^0.16.22",
-    "kiso.css": "^1.2.1",
-    "microcms-js-sdk": "^3.2.0"
-  },
-  "devDependencies": {
-    "@astrojs/svelte": "^7.1.0",
-    "@biomejs/biome": "^2.3.11",
-    "@shikijs/transformers": "^3.7.0",
-    "@types/node": "^25.0.5",
-    "astro": "^5.16.0",
-    "shiki": "^3.7.0",
-    "shiki-transformer-copy-button": "^0.0.5",
-    "svelte": "^5.35.6",
-    "typescript": "^5.8.3"
-  }
+	"name": "denkakougei.dev",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev --host",
+		"build": "astro build",
+		"preview": "astro preview",
+		"deploy": "npm run build",
+		"astro": "astro",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write .",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"cheerio": "^1.1.0",
+		"gsap": "^3.13.0",
+		"katex": "^0.16.22",
+		"kiso.css": "^1.2.1",
+		"microcms-js-sdk": "^3.2.0"
+	},
+	"devDependencies": {
+		"@astrojs/svelte": "^7.1.0",
+		"@biomejs/biome": "^2.3.11",
+		"@shikijs/transformers": "^3.7.0",
+		"@types/node": "^25.0.5",
+		"astro": "^5.16.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
+		"shiki": "^3.7.0",
+		"shiki-transformer-copy-button": "^0.0.5",
+		"svelte": "^5.35.6",
+		"typescript": "^5.8.3"
+	},
+	"lint-staged": {
+		"*.{js,mjs,ts,json,jsonc,css,html,astro,svelte}": [
+			"biome check --write",
+			"biome format --write"
+		]
+	}
 }
