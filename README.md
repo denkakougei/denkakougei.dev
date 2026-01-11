@@ -1,7 +1,45 @@
-# 電化工藝
+# denkakougei.dev
 
-ハードウェアだからこそ仕掛けられる驚きや楽しさがあるという信念のもと、娯楽性と機能性の両立をテーマに、日常をほんのり彩る、ちょっと便利なプロダクトを制作しています
+https://denkakougei.dev
 
-## 主な活動
-- [Ogaki Mini Maker Faire 2022](https://www.iamas.ac.jp/ommf2022/maker/yasei-no-prototyper/)
-- [Maker Faire Tokyo 2022](https://makezine.jp/event/makers-mft2022/m0122/)
+## Setup
+
+```sh
+$ git clone git@github.com:denkakougei/denkakougei.dev.git
+$ cd denkakougei.dev
+$ npm install
+```
+
+環境変数を設定:
+
+```env
+SITE_URL=https://denkakougei.dev
+MICROCMS_SERVICE_DOMAIN=your-service-domain
+MICROCMS_API_KEY=your-api-key
+```
+
+開発サーバーの起動:
+
+```sh
+$ npm run dev
+```
+
+## Build
+
+```sh
+$ npm run build
+```
+
+### Preview
+
+```sh
+$ npm run preview
+```
+
+### Lint & Format
+
+```sh
+$ npm run lint
+$ npm run lint:fix
+$ npm run format
+```
