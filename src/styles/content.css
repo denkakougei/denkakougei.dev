@@ -55,21 +55,19 @@
   margin-block-end: 0;
 }
 
-/* リスト */
-ul,
-ol {
+.content ul,
+.content ol {
   padding-inline-start: var(--spacing-1);
   list-style-type: "・";
 }
 
-/* リンク */
-:any-link:hover {
+.content :any-link:hover {
   border-bottom: 2px solid
     var(--post-card-heading-border-color, rgba(0, 0, 0, 0));
 }
 
 @media (any-hover: hover) {
-  :any-link:hover {
+  .content :any-link:hover {
     --post-card-heading-border-color: var(--bunker);
   }
 }
