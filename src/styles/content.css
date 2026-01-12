@@ -1,4 +1,3 @@
-/* 記事ヘッダー */
 .header {
   display: block grid;
   gap: var(--spacing-3);
@@ -20,7 +19,6 @@
   height: auto;
 }
 
-/* コンテンツエリア */
 .content {
   display: block;
   inline-size: 100%;
@@ -36,15 +34,128 @@
   margin-block-start: 3.6rem;
 }
 
+.content h3 {
+  font-size: var(--font-size-large);
+  margin-block-start: 1.33rem;
+}
+
 .content p {
   margin-block-end: var(--spacing-3);
   margin: 1.8rem 0;
 }
 
-.content img {
+.content h1 + p,
+.content h2 + p,
+.content h3 + p,
+.content h4 + p,
+.content h5 + p,
+.content h6 + p {
+  margin-top: var(--spacing-2);
+}
+
+.content a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  color: var(--blue);
+}
+
+.content a:focus-visible {
+  outline: none;
+  border-bottom-color: currentColor;
+}
+
+@media (any-hover: hover) {
+  .content a:hover {
+    border-bottom-color: currentColor;
+  }
+}
+
+@media (any-hover: none) {
+  .content a:active {
+    border-bottom-color: currentColor;
+  }
+}
+
+.content {
+  margin-block-start: 0;
+}
+
+.content blockquote {
+  margin: var(--spacing-4) 0;
+  padding: var(--spacing-1) 0 var(--spacing-1) var(--spacing-2);
+  border-inline-start: 4px solid var(--chambray);
+  border-left: 3px solid var(--scarpa-flow);
+  color: var(--scarpa-flow);
+
+  p {
+    margin: var(--spacing-2) 0;
+  }
+
+  a {
+    color: var(--blue);
+  }
+
+  > :first-child {
+    margin-block-start: 0;
+  }
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+}
+
+.content ul,
+.content ol {
+  margin: var(--spacing-3) 0;
+  padding-inline-start: 1.8rem;
+}
+
+.content ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.content ol {
+  list-style: decimal;
+}
+
+.content li {
+  margin-block: 0.6rem;
+  line-height: 1.6;
+}
+
+.content ul li {
+  position: relative;
+  padding-inline-start: 1.6rem;
+}
+
+.content ul li::before {
+  content: "";
+  --dot-radius: 0.2lh;
+  position: absolute;
+  inset-block-start: 0.5lh;
+  inset-inline-start: 0.8rem;
+  block-size: var(--dot-radius);
+  inline-size: var(--dot-radius);
+  border-radius: 999px;
+  background-color: currentColor;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.content figure {
   max-inline-size: 100%;
   height: auto;
   margin: var(--spacing-4) 0;
+  display: block grid;
+  gap: var(--spacing-1);
+  grid-template-areas:
+    "image"
+    "caption";
+  grid-template-rows: 1fr auto;
+}
+
+.content figcaption {
+  color: var(--scarpa-flow);
 }
 
 .content > *:first-child {
@@ -55,19 +166,20 @@
   margin-block-end: 0;
 }
 
-.content ul,
-.content ol {
-  padding-inline-start: var(--spacing-1);
-  list-style-type: "・";
+.content .shiki {
+  padding: var(--spacing-3);
+  overflow-x: auto;
+  border-radius: var(--border-radius-small);
 }
 
-.content :any-link:hover {
-  border-bottom: 2px solid
-    var(--post-card-heading-border-color, rgba(0, 0, 0, 0));
+.content .mermaid {
+  margin-block: var(--spacing-4);
+  overflow-x: auto;
 }
 
-@media (any-hover: hover) {
-  .content :any-link:hover {
-    --post-card-heading-border-color: var(--bunker);
-  }
+.content .katex-display {
+  inline-size: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.1rem; /* HACK: なぜかoverflow-xによって数式の上下が見切れてしまうのでpadding追加 */
 }

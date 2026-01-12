@@ -13,28 +13,53 @@ const { work } = Astro.props;
 
 <article class="work">
     <div class="thumbnail">
-        <a href={work.link} target="_blank" rel="noopener noreferrer">
-            {work.eyecatch ? (
-                <picture>
-                    <Image
-                        src={`${work.eyecatch.url}?fm=webp&fit=fill&fill-color=dde0e4&w=640&h=336`}
-                        alt={work.title}
-                        class="eyecatch"
-                        width={work.eyecatch?.width || 640}
-                        height={work.eyecatch?.height || 336}
-                        format="webp"
-                    />
-                </picture>
-            ) : (
-                <div class="placeholderEyecatch"></div>
-            )}
-        </a>
+        {work.open_external_url && work.external_url ? (
+            <a href={work.external_url} target="_blank" rel="noopener noreferrer">
+                {work.eyecatch ? (
+                    <picture>
+                        <Image
+                            src={`${work.eyecatch.url}?fm=webp&fit=fill&fill-color=dde0e4&w=640&h=336`}
+                            alt={work.title}
+                            class="eyecatch"
+                            width={work.eyecatch?.width || 640}
+                            height={work.eyecatch?.height || 336}
+                            format="webp"
+                        />
+                    </picture>
+                ) : (
+                    <div class="placeholderEyecatch"></div>
+                )}
+            </a>
+        ) : (
+            <a href={`/works/${work.id}`}>
+                {work.eyecatch ? (
+                    <picture>
+                        <Image
+                            src={`${work.eyecatch.url}?fm=webp&fit=fill&fill-color=dde0e4&w=640&h=336`}
+                            alt={work.title}
+                            class="eyecatch"
+                            width={work.eyecatch?.width || 640}
+                            height={work.eyecatch?.height || 336}
+                            format="webp"
+                        />
+                    </picture>
+                ) : (
+                    <div class="placeholderEyecatch"></div>
+                )}
+            </a>
+        )}
     </div>
     <h2 class="title">
-        <a href={work.link} target="_blank" rel="noopener noreferrer">
-            {work.title}
-            <ExternalLinkIcon />
-        </a>
+        {work.open_external_url && work.external_url ? (
+            <a href={work.external_url} target="_blank" rel="noopener noreferrer">
+                {work.title}
+                <ExternalLinkIcon />
+            </a>
+        ) : (
+            <a href={`/works/${work.id}`}>
+                {work.title}
+            </a>
+        )}
     </h2>
 </article>
 
@@ -43,15 +68,15 @@ const { work } = Astro.props;
         display: block grid;
         grid-template-areas:
             "eyecatch"
-            "title"
-            "publishDate";
-        grid-template-rows: 1fr auto auto;
+            "title";
+        grid-template-rows: 1fr auto;
+        gap: var(--spacing-1);
     }
 
     h2 {
         color: var(--bunker)
         font-size: var(--font-size-bold);
-        font-weight: 600;
+        font-weight: 500;
         a {
             transition: filter 0.2s var(--ease-out-expo);
             border-bottom: 2px solid var(--post-card-heading-border-color, rgba(0, 0, 0, 0));
