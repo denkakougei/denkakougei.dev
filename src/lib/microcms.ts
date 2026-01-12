@@ -12,12 +12,25 @@ export const client = createClient({
 
 export type Work = {
   title: string;
-  eyecatch: MicroCMSImage | null;
-  link: string;
+  eyecatch: MicroCMSImage;
+  open_external_url?: boolean;
+  external_url?: string;
+  content?: string;
 } & MicroCMSListContent;
 
 export const getWorks = async (queries?: MicroCMSQueries) => {
   return await client.getList<Work>({ endpoint: "works", queries });
+};
+
+export const getWorkDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries,
+) => {
+  return await client.getListDetail<Work>({
+    endpoint: "works",
+    contentId,
+    queries,
+  });
 };
 
 export const getBlogDetail = async (
