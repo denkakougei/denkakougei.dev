@@ -47,4 +47,4 @@ jobs:
         run: npm ci
 
       - name: Run typecheck
-        run: npx astro check
+        run: npm run typecheck

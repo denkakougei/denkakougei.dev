@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "deploy": "npm run build",
     "astro": "astro",
+    "typecheck": "astro check",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
@@ -21,6 +22,7 @@
     "microcms-js-sdk": "^3.4.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@astrojs/svelte": "^7.2.5",
     "@biomejs/biome": "^2.5.7",
     "@shikijs/transformers": "^3.23.0",
