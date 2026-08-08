@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@astrojs/svelte": "^7.1.0",
-    "@biomejs/biome": "^2.3.11",
+    "@biomejs/biome": "^2.5.7",
     "@shikijs/transformers": "^3.7.0",
     "@types/node": "^25.0.5",
     "astro": "^5.16.0",
