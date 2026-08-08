@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to production
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: "deploy-main"
+  group: "deploy-production"
   cancel-in-progress: true
 
 jobs:
