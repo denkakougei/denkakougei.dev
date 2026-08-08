@@ -7,6 +7,7 @@ import { addCopyButton } from "shiki-transformer-copy-button";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getWorkDetail, getWorks } from "../../lib/microcms";
 import { formatDateJST } from "../../utils/date/formatDateJST";
+import "katex/dist/katex.min.css";
 import "../../styles/content.css";
 
 export async function getStaticPaths() {
@@ -94,12 +95,6 @@ const formatedHtml = $preProcessedHtml.html();
 ---
 
 <BaseLayout title={work.title}>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-        integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-        crossorigin="anonymous"
-    />
     <div class="mainContentInner">
         <div class="header">
             <h1 class="title">{work.title}</h1>
