@@ -34,14 +34,8 @@
   margin-block-start: 3.6rem;
 }
 
-.content h3 {
-  font-size: var(--font-size-large);
-  margin-block-start: 1.33rem;
-}
-
 .content p {
-  margin-block-end: var(--spacing-3);
-  margin: 1.8rem 0;
+  margin-block: 1.8rem;
 }
 
 .content h1 + p,
@@ -50,49 +44,40 @@
 .content h4 + p,
 .content h5 + p,
 .content h6 + p {
-  margin-top: var(--spacing-2);
+  margin-block-start: var(--spacing-2);
 }
 
 .content a {
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  color: var(--blue);
+  border-bottom: 1px solid currentColor;
 }
 
 .content a:focus-visible {
   outline: none;
-  border-bottom-color: currentColor;
+  border-bottom-width: 2px;
 }
 
 @media (any-hover: hover) {
   .content a:hover {
-    border-bottom-color: currentColor;
+    border-bottom-width: 2px;
   }
 }
 
 @media (any-hover: none) {
   .content a:active {
-    border-bottom-color: currentColor;
+    border-bottom-width: 2px;
   }
-}
-
-.content {
-  margin-block-start: 0;
 }
 
 .content blockquote {
-  margin: var(--spacing-4) 0;
-  padding: var(--spacing-1) 0 var(--spacing-1) var(--spacing-2);
-  border-inline-start: 4px solid var(--chambray);
-  border-left: 3px solid var(--scarpa-flow);
+  margin-block: var(--spacing-4);
+  padding-block: var(--spacing-1);
+  padding-inline-start: var(--spacing-2);
+  border-inline-start: 3px solid var(--scarpa-flow);
   color: var(--scarpa-flow);
 
   p {
-    margin: var(--spacing-2) 0;
-  }
-
-  a {
-    color: var(--blue);
+    margin-block: var(--spacing-2);
   }
 
   > :first-child {
