@@ -6,7 +6,6 @@ import { bundledLanguages, codeToHtml } from "shiki";
 import { addCopyButton } from "shiki-transformer-copy-button";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getWorkDetail, getWorks } from "../../lib/microcms";
-import { formatDateJST } from "../../utils/date/formatDateJST";
 import "../../styles/content.css";
 
 export async function getStaticPaths() {
@@ -94,7 +93,12 @@ const formatedHtml = $preProcessedHtml.html();
 ---
 
 <BaseLayout title={work.title}>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+  />
   <div class="mainContentInner">
     <div class="header">
       <h1 class="title">{work.title}</h1>
@@ -102,12 +106,12 @@ const formatedHtml = $preProcessedHtml.html();
         work.eyecatch && (
           <picture class="eyecatch">
             <Image
-                src={`${work.eyecatch.url}?fm=webp&fit=fill&fill-color=dde0e4&w=840&h=441`}
-                alt={work.title}
-                class="eyecatch"
-                width={work.eyecatch?.width || 840}
-                height={work.eyecatch?.height || 441}
-                format="webp"
+              src={`${work.eyecatch.url}?fm=webp&fit=fill&fill-color=dde0e4&w=840&h=441`}
+              alt={work.title}
+              class="eyecatch"
+              width={work.eyecatch?.width || 840}
+              height={work.eyecatch?.height || 441}
+              format="webp"
             />
           </picture>
         )
