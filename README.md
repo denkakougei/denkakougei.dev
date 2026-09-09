@@ -4,16 +4,17 @@ https://denkakougei.dev
 
 ## Setup
 
+Bun は `.bun-version` に記載のバージョンを使用する。
+
 ```sh
 $ git clone git@github.com:denkakougei/denkakougei.dev.git
 $ cd denkakougei.dev
-$ npm install
+$ bun install
 ```
 
-環境変数を設定:
+リポジトリ直下に `.env` を作成し、環境変数を設定:
 
 ```env
-SITE_URL=https://denkakougei.dev
 MICROCMS_SERVICE_DOMAIN=your-service-domain
 MICROCMS_API_KEY=your-api-key
 ```
@@ -21,25 +22,13 @@ MICROCMS_API_KEY=your-api-key
 開発サーバーの起動:
 
 ```sh
-$ npm run dev
+$ bun run dev
 ```
 
-## Build
 
-```sh
-$ npm run build
-```
+## Deploy
 
-### Preview
-
-```sh
-$ npm run preview
-```
-
-### Lint & Format
-
-```sh
-$ npm run lint
-$ npm run lint:fix
-$ npm run format
-```
+| 環境 | トリガー | デプロイ先 |
+| --- | --- | --- |
+| production | `main` への push | GitHub Pages |
+| staging | `develop` への push | Cloudflare Workers |
