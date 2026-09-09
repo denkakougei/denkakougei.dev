@@ -1,4 +1,6 @@
-@import "kiso.css";
+@layer reset, content;
+
+@import "kiso.css" layer(reset);
 
 :root {
   --bunker: #1b1b1b;
@@ -42,65 +44,67 @@
   --spacing-gutter: calc(20 * var(--to-svi-min));
 }
 
-html {
-  height: 100%;
-}
+@layer reset {
+  html {
+    height: 100%;
+  }
 
-body {
-  box-sizing: border-box;
-  height: 100%;
-  margin: 0;
-  font-family: var(--font-family);
-  font-optical-sizing: auto;
-  line-height: 1.5;
-  color: var(--bunker);
-  text-wrap: pretty;
-  word-break: auto-phrase;
-}
+  body {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    font-family: var(--font-family);
+    font-optical-sizing: auto;
+    line-height: 1.5;
+    color: var(--bunker);
+    text-wrap: pretty;
+    word-break: auto-phrase;
+  }
 
-header,
-h1,
-h2,
-h3,
-p,
-a,
-div,
-ul,
-li,
-figure,
-dl,
-dd,
-button {
-  box-sizing: border-box;
-  margin: 0;
-}
+  header,
+  h1,
+  h2,
+  h3,
+  p,
+  a,
+  div,
+  ul,
+  li,
+  figure,
+  dl,
+  dd,
+  button {
+    box-sizing: border-box;
+    margin: 0;
+  }
 
-a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 
-button {
-  font-family: var(--font-family);
-  appearance: none;
-}
+  button {
+    font-family: var(--font-family);
+    appearance: none;
+  }
 
-@media (any-hover: hover) {
-  :where(:any-link, :enabled, summary):hover {
+  @media (any-hover: hover) {
+    :where(:any-link, :enabled, summary):hover {
+      --is-hover-true: initial;
+      --is-hover-false: ;
+    }
+  }
+
+  :where(:any-link, :enabled, summary) {
+    --is-hover-true: ;
+    --is-hover-false: initial;
+  }
+
+  :where(:any-link, :enabled, summary):focus-visible {
     --is-hover-true: initial;
     --is-hover-false: ;
   }
-}
 
-:where(:any-link, :enabled, summary) {
-  --is-hover-true: ;
-  --is-hover-false: initial;
-}
-
-:where(:any-link, :enabled, summary):focus-visible {
-  --is-hover-true: initial;
-  --is-hover-false: ;
-}
-
-:where(picture) {
-  display: contents;
+  :where(picture) {
+    display: contents;
+  }
 }

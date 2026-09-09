@@ -1,9 +1,15 @@
 ---
 import "../styles/global.css";
+
 const { title = "電化工藝", description = "" } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
+
+<style is:inline>
+    @layer reset, content;
+</style>
+
 <meta name="description" property="og:description" content={description} />
 <!-- <meta property="og:image" content="" />
 <meta property="og:image:alt" content="" /> -->
@@ -15,7 +21,10 @@ const { title = "電化工藝", description = "" } = Astro.props;
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;900&display=swap"
-  rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;900&display=swap"
+    rel="stylesheet"
 />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap"
+    rel="stylesheet"
+/>

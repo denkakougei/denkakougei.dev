@@ -8,35 +8,34 @@ const works = data.contents;
 ---
 
 <BaseLayout title="Works | 電化工藝">
-	<div class="mainContentInner">
-		<div class="heading">
-			<h1>Works</h1>
-		</div>
-		<WorkList works={works} />
-	</div>
+    <div class="mainContentInner">
+        <div class="heading">
+            <h1>Works</h1>
+        </div>
+        <WorkList works={works} />
+    </div>
 </BaseLayout>
 
 <style>
+    .heading h1 {
+        font-size: var(--font-size-h3);
+        font-weight: 700;
+    }
 
-	.heading h1 {
-		font-size: var(--font-size-h3);
-		font-weight: 700;
-	}
+    .mainContentInner {
+        inline-size: 100%;
+        display: block grid;
+        gap: var(--spacing-8);
+        grid-template-areas:
+            "heading"
+            "workList";
+        grid-template-rows: auto 1fr;
 
-	.mainContentInner {
-		inline-size: 100%;
-		display: block grid;
-		gap: var(--spacing-8);
-		grid-template-areas: 
-			"heading"
-			"workList";
-		grid-template-rows: auto 1fr;
-		
-		.heading {
-			grid-area: heading;
-		}
-		.workList {
-			grid-area: workList;
-		}
-	}
+        .heading {
+            grid-area: heading;
+        }
+        .workList {
+            grid-area: workList;
+        }
+    }
 </style>

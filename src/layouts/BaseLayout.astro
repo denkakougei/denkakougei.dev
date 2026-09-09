@@ -4,7 +4,7 @@ import GlobalHeader from "../components/GlobalHeader/GlobalHeader.astro";
 import MainHead from "../components/MainHead.astro";
 import "../styles/global.css";
 
-const { title, frontmatter, class: className } = Astro.props;
+const { title, frontmatter } = Astro.props;
 ---
 
 <html lang="ja">
@@ -65,21 +65,3 @@ const { title, frontmatter, class: className } = Astro.props;
         grid-area: globalFooter;
     }
 </style>
-
-<script>
-    import { gsap } from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
-    import { ScrollSmoother } from 'gsap/ScrollSmoother';
-
-    /*
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
-    ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 1,
-        effects: true
-    });
-    */
-
-</script>

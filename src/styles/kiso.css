@@ -328,13 +328,13 @@
 }
 
 :where(
-    input:is(
-        [type="tel" i],
-        [type="url" i],
-        [type="email" i],
-        [type="number" i]
-      ):not(:placeholder-shown)
-  ) {
+  input:is(
+    [type="tel" i],
+    [type="url" i],
+    [type="email" i],
+    [type="number" i]
+  ):not(:placeholder-shown)
+) {
   /*
   * Certain input types need to maintain left alignment even in right-to-left (RTL) languages.
   * However, this only applies when the value is not empty, as the placeholder should be right-aligned.
@@ -352,30 +352,30 @@
 }
 
 :where(
-    input:not([type="button" i], [type="submit" i], [type="reset" i]),
-    textarea,
-    [contenteditable]
-  ) {
+  input:not([type="button" i], [type="submit" i], [type="reset" i]),
+  textarea,
+  [contenteditable]
+) {
   /* Set to `no-autospace` because `text-autospace` can insert spaces during input, potentially causing erratic behavior. */
   text-autospace: no-autospace;
 }
 
 :where(
-    button,
-    input:is([type="button" i], [type="submit" i], [type="reset" i])
-  ),
+  button,
+  input:is([type="button" i], [type="submit" i], [type="reset" i])
+),
 ::file-selector-button {
   /* The `background-color` specified in the User Agent (UA) stylesheet is often unnecessary, so it is reset here. */
   background-color: unset;
 }
 
 :where(
-    button,
-    input:is([type="button" i], [type="submit" i], [type="reset" i]),
-    [role="tab" i],
-    [role="button" i],
-    [role="option" i]
-  ),
+  button,
+  input:is([type="button" i], [type="submit" i], [type="reset" i]),
+  [role="tab" i],
+  [role="button" i],
+  [role="option" i]
+),
 ::file-selector-button {
   /*
   * On iOS, double-tapping a button can cause zooming, which harms usability.
@@ -386,20 +386,20 @@
 }
 
 :where(
-    button:enabled,
-    label[for],
-    select:enabled,
-    input:is(
-        [type="button" i],
-        [type="submit" i],
-        [type="reset" i],
-        [type="radio" i],
-        [type="checkbox" i]
-      ):enabled,
-    [role="tab" i],
-    [role="button" i],
-    [role="option" i]
-  ),
+  button:enabled,
+  label[for],
+  select:enabled,
+  input:is(
+    [type="button" i],
+    [type="submit" i],
+    [type="reset" i],
+    [type="radio" i],
+    [type="checkbox" i]
+  ):enabled,
+  [role="tab" i],
+  [role="button" i],
+  [role="option" i]
+),
 :where(:enabled)::file-selector-button {
   /* Indicate clickable elements with a pointer cursor. */
   cursor: pointer;
