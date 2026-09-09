@@ -6,47 +6,31 @@ import "../styles/content.css";
 <BaseLayout title="電化工藝">
 	<div class="mainContentInner">
 		<div class="content">
-			<h2>
-				<a
-					href="https://app.notion.com/p/3b4c9b55164b806085e1ecd71340c0b6"
-					>電化工藝ってなんだよ</a
-				>
-			</h2>
-			<p>
-				ハードウェアだからこそ仕掛けられる驚きや楽しさがあるという信念のもと、娯楽性と機能性の両立をテーマに、日常をほんのり彩る、ちょっと便利なプロダクトを制作しています。
-			</p>
+			<p>ハードウェアだからこそ仕掛けられる驚きや楽しさがあるという信念のもと、娯楽性と機能性の両立をテーマに、日常をほんのり彩る、ちょっと便利なプロダクトを制作しています<p>
 			<ul>
-				<li>
-					<a
-						href="https://www.iamas.ac.jp/ommf2022/maker/yasei-no-prototyper/"
-						>Ogaki Mini Maker Faire 2022</a
-					>
-				</li>
-				<li>
-					<a href="https://makezine.jp/event/makers-mft2022/m0122/"
-						>Maker Faire Tokyo 2022</a
-					>
-				</li>
+				<li><a href="https://www.iamas.ac.jp/ommf2022/maker/yasei-no-prototyper/">Ogaki Mini Maker Faire 2022</a></li>
+				<li><a href="https://makezine.jp/event/makers-mft2022/m0122/">Maker Faire Tokyo 2022</a></li>
 			</ul>
 		</div>
+	</div>
+</BaseLayout>
 
-		<style>
-			.mainContentInner {
-				inline-size: 100%;
-				display: block grid;
-				gap: var(--spacing-8);
-				grid-template-areas:
-					"heading"
-					"WorkList";
-				grid-template-rows: auto 1fr;
+<style>
+	.mainContentInner {
+		inline-size: 100%;
+		display: block grid;
+		gap: var(--spacing-8);
+		grid-template-areas:
+			"heading"
+			"WorkList";
+		grid-template-rows: auto 1fr;
 
-				.heading {
-					grid-area: heading;
-				}
-				.WorkList {
-					grid-area: WorkList;
-				}
-			}
-		</style>
-	</div></BaseLayout
->
+		.heading {
+			grid-area: heading;
+		}
+		.WorkList {
+			grid-area: WorkList;
+		}
+	}
+</style>
+
